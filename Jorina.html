@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Good Night Jorina Khala 🌙</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    overflow:hidden;
+    background:linear-gradient(#050b18,#1b3048);
+    color:white;
+    font-family:monospace;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    text-align:center;
+    z-index:2;
+    padding:20px;
+}
+
+#message{
+    font-size:20px;
+    line-height:1.8;
+    min-height:120px;
+}
+
+.rain{
+    position:absolute;
+    width:2px;
+    height:20px;
+    background:#9be7ff;
+    animation:rain linear infinite;
+}
+
+@keyframes rain{
+    from{transform:translateY(-100vh);}
+    to{transform:translateY(100vh);}
+}
+
+.star{
+    position:absolute;
+    animation:shine 2s infinite;
+}
+
+@keyframes shine{
+    50%{opacity:.2;}
+}
+
+#gift{
+    display:none;
+    margin-top:25px;
+    font-size:45px;
+    cursor:pointer;
+    animation:bounce 1s infinite;
+}
+
+@keyframes bounce{
+    50%{transform:translateY(-10px);}
+}
+
+#secret{
+    display:none;
+    margin-top:20px;
+    font-size:18px;
+    color:#bdeaff;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🌙 Jorina Khala.exe</h1>
+
+<div id="message"></div>
+
+<div id="gift" onclick="openGift()">
+🎁
+<br>
+<span style="font-size:15px;">Open Surprise</span>
+</div>
+
+<div id="secret">
+💙 Dear Jorina Khala 💙<br><br>
+
+Ei chotto gift box-er moddhe ache<br>
+ekta simple wish... ✨<br><br>
+
+Tomar life always happiness,<br>
+peace ar beautiful moments diye<br>
+purno thakuk. 🌧️🌙<br><br>
+
+Good Night 😴💫
+</div>
+
+</div>
+
+
+<script>
+
+// Rain
+for(let i=0;i<150;i++){
+let r=document.createElement("div");
+r.className="rain";
+r.style.left=Math.random()*100+"vw";
+r.style.animationDuration=(0.5+Math.random()*1)+"s";
+r.style.animationDelay=Math.random()*2+"s";
+document.body.appendChild(r);
+}
+
+
+// Stars
+for(let i=0;i<50;i++){
+let s=document.createElement("div");
+s.className="star";
+s.innerHTML="✦";
+s.style.left=Math.random()*100+"vw";
+s.style.top=Math.random()*100+"vh";
+document.body.appendChild(s);
+}
+
+
+// Pages
+let pages=[
+"🌧️ Rain Mode Activated...",
+"☁️ A special night message loading...",
+"📖 Opening Jorina Khala's page...",
+"✨ Some people make ordinary moments special...",
+"🌙 Today this little message is only for you...",
+"May your dreams be peaceful and your smile stay forever 💙"
+];
+
+let p=0;
+
+function showPage(){
+
+if(p<pages.length){
+
+document.getElementById("message").innerHTML=pages[p];
+
+p++;
+
+setTimeout(showPage,2500);
+
+}else{
+
+document.getElementById("message").innerHTML=
+"🌙 Final Page Opened...";
+
+document.getElementById("gift").style.display="block";
+
+}
+
+}
+
+showPage();
+
+
+function openGift(){
+
+document.getElementById("gift").style.display="none";
+
+document.getElementById("secret").style.display="block";
+
+}
+
+</script>
+
+</body>
+</html>
